@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+
+body{
+    margin: 0;
+    height: 100%;
+    font-family: 'Patrick Hand', cursive;
+
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    z-index: 0;
+    overflow: hidden;
+}
+.wrapper{
+    z-index: 1;
+    position: absolute;
+    display: grid;
+    grid-template-rows: 150px auto 90px;
+    height: 100%;
+}
+.logo{
+    grid-row: 1;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+.planets{
+    grid-row:2;
+    display: grid;
+    grid-template-columns: 14% 3% 6.5% 7% 6% 13.5% 13% 8% 7% 3%; 
+    grid-gap: 2%;
+ 
+}
+.planet{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    img{
+        width:100%;
+        height: auto;
+    }
+    a.planet_link{
+        position: relative;
+        color:#fff;
+        text-decoration: none;
+        .planet_name{
+            transition: all 250ms ease-out;
+            top: 0;
+            opacity: 0;
+            font-size: 30px;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%,0);
+            position: absolute;
+    }
+        &:hover .planet_name{
+            top: -50px;
+            opacity: 1;
+        }
+
+    }
+}
+
+// Lines
+/*
+.planet{
+    position: relative;
+    z-index: 10;
+   
+    span{
+        height: 50%;
+        position: absolute;
+        top:0;
+        left: 50%;
+        background-color: #fff;
+        width:2px;
+    }
+}*/
+
+
+nav{
+    grid-row: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25%;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+ background: -moz-linear-gradient(bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+ background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+ background: linear-gradient(to top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+ //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    }
+   a.nav_item{
+   text-decoration: none;
+    color:#fff;
+    font-size: 20px;
+    }
