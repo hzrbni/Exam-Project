@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Patrick+Hand");
+@import url("https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope");
 body {
   margin: 0;
   height: 100%;
-  font-family: 'Patrick Hand', cursive; }
+  font-family: 'Annie Use Your Telescope', cursive;
+  background-color: black; }
 
 .bg {
   width: 100%;
@@ -12,6 +13,31 @@ body {
   z-index: 0;
   overflow: hidden; }
 
+.space_bg {
+  background: url(../img/bg.png) repeat 0 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  height: 100%;
+  padding-top: 120px;
+  box-sizing: border-box;
+  -webkit-animation: slide 100s linear infinite; }
+
+.space_bg_stars_anm {
+  background: url(../img/Stars.png) repeat 0 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  height: 100%;
+  padding-top: 120px;
+  box-sizing: border-box;
+  -webkit-animation: slide 50s linear infinite; }
+
+@-webkit-keyframes slide {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: -1920px 0; } }
 .wrapper {
   z-index: 1;
   position: absolute;
@@ -31,7 +57,8 @@ body {
   grid-row: 2;
   display: grid;
   grid-template-columns: 14% 3% 6.5% 7% 6% 13.5% 13% 8% 7% 3%;
-  grid-gap: 2%; }
+  grid-gap: 2%;
+  position: relative; }
 
 .planet {
   display: flex;
@@ -54,9 +81,55 @@ body {
       left: 50%;
       transform: translate(-50%, 0);
       position: absolute; }
-    .planet a.planet_link:hover .planet_name {
-      top: -50px;
-      opacity: 1; }
+    .planet a.planet_link .planet_img {
+      transition: all 150ms ease-out; }
+    .planet a.planet_link:hover {
+      animation-play-state: paused; }
+      .planet a.planet_link:hover .planet_img {
+        transform: scale(0.9); }
+      .planet a.planet_link:hover .planet_name {
+        top: -50px;
+        opacity: 1; }
+
+.Mercury a.planet_link {
+  animation: MoveUpDown 2s linear infinite; }
+
+.Venus a.planet_link {
+  animation: MoveUpDown 3s linear infinite; }
+
+.Earth a.planet_link {
+  animation: MoveUpDown 1.5s linear infinite; }
+
+.Mars a.planet_link {
+  animation: MoveUpDown 2.5s linear infinite; }
+
+.Jupiter a.planet_link {
+  animation: MoveUpDown 3s linear infinite; }
+
+.Saturn a.planet_link {
+  animation: MoveUpDown 2.5s linear infinite; }
+
+.Uranus a.planet_link {
+  animation: MoveUpDown 1.5s linear infinite; }
+
+.Neptune a.planet_link {
+  animation: MoveUpDown 2s linear infinite; }
+
+.pluto a.planet_link {
+  animation: MoveUpDown 3s linear infinite; }
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    padding-bottom: 0; }
+  50% {
+    padding-bottom: 30px; } }
+.sun .planet_img {
+  overflow: hidden;
+  transform: scale(1) !important;
+  position: relative; }
+  .sun .planet_img img {
+    float: right;
+    width: 200%; }
 
 /*
 .planet{
@@ -79,11 +152,11 @@ nav {
   justify-content: space-between;
   padding: 0 25%;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-  background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
 
 a.nav_item {
