@@ -42,6 +42,8 @@ body{
     display: grid;
     grid-template-rows: 140px auto 90px;
     height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 .logo{
     grid-row: 1;
@@ -95,6 +97,98 @@ body{
             }
         }
     }
+}
+.planet_txt{
+    display: none;
+    max-height: 100%;
+    min-height: 100%;
+    background: #fff url(../img/torn_paper.png) repeat-y 0 0;
+    padding:10px 30px 10px 60px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.planet{
+    transition: all;
+    .planet_link{transition: all;}
+}
+
+
+@keyframes subpage{
+    from {left:300px;opacity: 0;}
+    to {left:0px;opacity:1;}
+}
+
+
+.planet:target{
+    z-index: 99;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #22282b;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    -webkit-animation: subpage .5s;
+
+    .planet_txt{display: block;}
+    a.planet_link {
+        padding: 0 50px 50px;
+        .planet_name {
+            opacity: 1;
+            font-size: 70px;
+            position: absolute;
+            top:auto;
+            bottom: -90px;;
+        }   
+        .planet_img {
+            transform: scale(1);
+            text-align: center;
+            img{max-width: 400px;}
+        }
+    
+}
+}
+.sun:target .planet_img img{
+    float: none;
+    width: 100%;
+}
+
+ul.icons{
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-size: 20px;
+    li{display: flex;align-items: center;}
+    .icon_title{
+        display: block; 
+        opacity: 0; 
+        font-size: 16px; 
+        color: #48545b; 
+        line-height:14px;
+        height: 0;
+        overflow: hidden;
+        transition: all 200ms ease;
+    }
+    li:hover{
+        .icon_title{opacity: 1; height: auto}
+    }
+    .icon_img{
+        padding-right: 12px;
+        img{width: 50px;}
+    }
+}
+
+.backbtn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 20px;
 }
 
 .Mercury a.planet_link{animation: MoveUpDown 2.5s ease-in-out infinite;}
