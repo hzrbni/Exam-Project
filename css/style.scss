@@ -59,11 +59,22 @@ body{
 .planets{
     grid-area: planets;
     display: grid;
-    grid-template-columns: 14% 3% 6.5% 7% 6% 13.5% 13% 8% 7% 3%; 
+    grid-template-columns: 14% 4% 6.5% 8% 6% 13.5% 14% 8% 7%; 
     grid-gap: 2%;
     position: relative;
- 
 }
+@media only screen and (max-width: 1024px) {
+    body {
+      background-color: lightblue;
+    }
+    .wrapper{
+        grid-template-areas: 
+        'logo logo menu'
+        'title title title'
+        'planets planets planets';
+        grid-template-rows:80px 100px auto;
+    }
+  }
 .planet{
     display: flex;
     align-items: center;
