@@ -265,7 +265,7 @@ nav {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 30px 50px;
+    padding: 15px 30px;
     background: #22282b; }
 
 .nav_wrapper {
@@ -277,6 +277,42 @@ nav {
 
 nav:target {
   display: flex; }
+  nav:target .members {
+    display: flex;
+    color: #fff;
+    font-size: 14px; }
+    nav:target .members .member_title {
+      font-size: 14px;
+      padding: 0 0 15px 0;
+      text-align: center;
+      color: #d78f7b; }
+    nav:target .members .member_name {
+      text-align: center;
+      font-size: 18px;
+      padding: 15px 0 0 0; }
+    nav:target .members .quote {
+      margin-bottom: 20px; }
+    nav:target .members .member_img img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px; }
+
+.member_item {
+  max-width: 200px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #22282b;
+  font-family: 'Montserrat', sans-serif; }
+
+.email img, .mob img {
+  width: 20px;
+  max-height: 20px; }
+
+.mob, .email {
+  text-align: left;
+  margin: 10px 0; }
+  .mob a, .email a {
+    color: #fff; }
 
 .video-container {
   position: relative;
@@ -381,6 +417,14 @@ nav:target {
     grid-template-columns: auto; }
     ul.icons .icon_title {
       opacity: 1;
-      height: auto; } }
+      height: auto; }
+
+  .members {
+    flex-direction: column; }
+
+  nav:target {
+    justify-content: flex-start;
+    position: fixed;
+    overflow: auto; } }
 
 /*# sourceMappingURL=style.css.map */
