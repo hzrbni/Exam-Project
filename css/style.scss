@@ -1,18 +1,20 @@
 //@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
-@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope');
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Montserrat');
 
 
 body{
     margin: 0;
     height: 100%;
     font-family: 'Annie Use Your Telescope', cursive;
-    background-color: black;
+    background-color:#48545b;
 }
+
+h1{font-family: 'Annie Use Your Telescope', cursive;}
 
 .bg{
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     background: url(../img/bg.png) repeat 0 0;
     z-index: 0;
     -webkit-animation: slide 180s linear infinite;
@@ -40,27 +42,31 @@ body{
     z-index: 1;
     position: absolute;
     display: grid;
-    grid-template-rows: 140px auto 90px;
+    grid-template-areas: 
+    'logo title menu'
+    'planets planets planets';
+    grid-template-rows:150px auto;
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
-.logo{
-    grid-row: 1;
+.title{
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 30px;
+    grid-area: title;
 }
 .planets{
-    grid-row:2;
+    grid-area: planets;
     display: grid;
-    grid-template-columns: 14% 3% 6.5% 7% 6% 13.5% 13% 8% 7% 3%; 
+    grid-template-columns: 14% 4% 6.5% 8% 6% 13.5% 14% 8% 7%; 
     grid-gap: 2%;
     position: relative;
- 
 }
+
+
 .planet{
     display: flex;
     align-items: center;
@@ -83,6 +89,7 @@ body{
             left: 50%;
             transform: translate(-50%,0);
             position: absolute;
+            max-height: 100%;
     }
     .planet_img{transition: all 150ms ease-out;}
 
@@ -114,8 +121,8 @@ body{
 
 
 @keyframes subpage{
-    from {left:300px;opacity: 0;}
-    to {left:0px;opacity:1;}
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity:1; transform: scale(1);}
 }
 
 
@@ -129,9 +136,14 @@ body{
     background-color: #22282b;
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    -webkit-animation: subpage .5s;
+    -webkit-animation: subpage .2s;
+    box-sizing: content-box;
+    
 
-    .planet_txt{display: block;}
+    .planet_txt{
+        font-family: 'Montserrat', sans-serif;    
+        display: block;
+    }
     a.planet_link {
         padding: 0 50px 50px;
         .planet_name {
@@ -144,7 +156,7 @@ body{
         .planet_img {
             transform: scale(1);
             text-align: center;
-            img{max-width: 400px;}
+            img{max-width: 320px;}
         }
     
 }
@@ -158,15 +170,16 @@ ul.icons{
     padding: 0;
     list-style-type: none;
     display: grid;
+    grid-gap: 12px;
     grid-template-columns: 50% 50%;
     font-size: 20px;
+    margin-bottom: 45px;
     li{display: flex;align-items: center;}
     .icon_title{
         display: block; 
         opacity: 0; 
         font-size: 16px; 
         color: #48545b; 
-        line-height:14px;
         height: 0;
         overflow: hidden;
         transition: all 200ms ease;
@@ -188,8 +201,16 @@ ul.icons{
     font-size: 30px;
     text-decoration: none;
     cursor: pointer;
-    padding: 20px;
-}
+    padding: 30px;
+    img{
+        width: 34px;
+    }
+    transition: transform 100ms ease;
+    &:hover {
+        transform: scale(1.2);
+    }
+    }
+        
 
 .Mercury a.planet_link{animation: MoveUpDown 2.5s ease-in-out infinite;}
 .Venus a.planet_link{animation: MoveUpDown 4s ease-in-out infinite;}
@@ -200,7 +221,7 @@ ul.icons{
 .Uranus a.planet_link{animation: MoveUpDown 2.5s ease-in-out infinite;}
 .Neptune a.planet_link{animation: MoveUpDown 3s ease-in-out infinite;}
 .pluto a.planet_link{animation: MoveUpDown 4s ease-in-out infinite;}
-      
+
 
 @keyframes MoveUpDown {
 0%, 100% {
@@ -219,33 +240,216 @@ ul.icons{
     img{
         float: right;
         width:200%;
-    }}
+    }
+}
 
 
 
 
-.logo_wrapper {
+.logo {
+    grid-area: logo;
     display: flex;
     align-items: center;
+    padding-left: 20px;
     
-    a{color: #fff; text-decoration: none; padding-left:12px;display: block; font-size: 20px;}
-    img{width: 50px; max-height: 100%;}
+    a{color: #fff; text-decoration: none; padding-left:12px;display: flex; font-size: 28px;align-items: center;}
+    img{width: 50px; max-height: 100%; margin-right:10px}
 }
 
 nav{
-    grid-row: 3;
-    display: flex;
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 25%;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
- background: -moz-linear-gradient(bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
- background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.55) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
- background: linear-gradient(to top, rgba(0,0,0,0.55) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
- //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    justify-content: center ;
+    background:rgba(34, 40, 43, 0.85);
+    a.nav_item{
+        text-decoration: none;
+        color:#fff;
+        font-size: 40px;
+        padding: 5px;
     }
-   a.nav_item{
-   text-decoration: none;
-    color:#fff;
-    font-size: 20px;
+    a.closeNav{
+        position: absolute;
+        top:0; right: 0;
+        padding: 15px 30px;
+        background: #22282b;
     }
+}
+
+.nav_wrapper{
+    grid-area: menu;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 30px 0 0;
+}
+nav:target{
+    display: flex;
+    .members{
+        display: flex;
+        color:#fff;
+        font-size: 14px;
+        .member_title{
+            font-size: 14px;
+            padding: 0 0 15px 0;
+            text-align: center;
+            color:#d78f7b;
+        }
+        .member_name{
+            text-align: center;
+            font-size: 18px;
+            padding: 15px 0 0 0;
+        }
+        .quote{
+            margin-bottom: 20px;
+        }
+       .member_img img{
+           border-radius: 50%;
+           width: 200px;
+           height: 200px;
+       }
+        
+    }}
+    .member_item{
+        max-width: 200px;
+        margin: 20px;
+        padding: 20px;
+        background-color: #22282b;
+        font-family:  'Montserrat', sans-serif;
+    }
+    .email img, .mob img{
+        width:20px;
+        max-height:20px;
+        
+    }
+    .mob, .email{
+        text-align: left;
+        margin: 10px 0;
+        a {
+            color:#fff;}
+    }
+    
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-height: 670px){
+    .wrapper{grid-template-rows:100px auto;}
+}
+
+@media only screen and (max-width: 1024px){
+    .wrapper{
+        position: relative;
+        overflow: unset;
+        grid-template-areas: 
+        'logo logo menu'
+        'title title title'
+        'planets planets planets';
+        grid-template-rows:80px 300px auto;
+    }
+    .planets{
+        grid-template-rows: repeat(9, auto);
+        grid-template-columns: auto;
+        grid-gap: 80px;
+        margin-bottom: 80px;
+        padding: 0 25px;
+    }
+    .sun .planet_img{
+        overflow: unset;
+        img{
+            float: none;
+            width:100%;
+        }
+    }
+    .planet{
+        a.planet_link{
+            animation: none;
+            .planet_name{
+                position: relative;
+                opacity: 1;
+                font-size: 47px;
+            }
+            .planet_img{margin-top: 30px;}
+            &:hover{ 
+                .planet_name{top:0}
+                .planet_img{transform: scale(1);}
+            }
+        }
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .Mercury{ max-width: 175px; }
+    .Venus{ max-width: 315px;}
+    .Earth{ max-width: 350px;}
+    .Mars{ max-width: 300px;}
+    .Uranus{ max-width: 350px;}
+    .Neptune{ max-width: 325px;}
+
+    .planet:target{
+        position: fixed;
+        max-width: 100%;
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto; 
+        -webkit-animation: subpage .2s;
+        overflow-y: auto;
+        background-color: #48545b;
+        
+        .planet_txt{
+            padding: 10px 15px;
+            max-height: auto; 
+            min-height: auto; 
+            overflow-y: unset;
+            background-image:none;
+            padding-bottom: 25px;
+        }
+        a.planet_link {
+            .planet_name {
+                z-index: 2;
+                text-shadow: rgba(0,0,0,.2) 0px 4px 1px;
+                font-size: 70px;
+                top:auto;
+                bottom: 45%;
+            }   
+            .planet_img {
+                transform: scale(.9);
+                img{max-width: 400px;}
+            }
+            
+        
+    }
+
+
+}
+ul.icons {
+    grid-template-columns: auto;
+    .icon_title{opacity: 1; height: auto}
+}
+
+.members{
+    flex-direction: column;
+}
+nav:target{
+    justify-content: flex-start;
+    position: fixed;
+    overflow: auto;
+}
+}
