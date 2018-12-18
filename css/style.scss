@@ -1,12 +1,12 @@
-//@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 @import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Montserrat');
-
+$Dark-color:#22282b;
+$light-color:#48545b;
 
 body{
     margin: 0;
     height: 100%;
     font-family: 'Annie Use Your Telescope', cursive;
-    background-color:#48545b;
+    background-color:$light-color;
 }
 
 h1{font-family: 'Annie Use Your Telescope', cursive;}
@@ -113,6 +113,11 @@ h1{font-family: 'Annie Use Your Telescope', cursive;}
     padding:10px 30px 10px 60px;
     box-sizing: border-box;
     overflow-y: auto;
+    ul{ padding: 0;
+        li{
+            padding: 8px;
+        }
+    }
 }
 .planet{
     transition: all;
@@ -133,7 +138,7 @@ h1{font-family: 'Annie Use Your Telescope', cursive;}
     width: 100%;
     top: 0;
     left: 0;
-    background-color: #22282b;
+    background-color: $Dark-color;
     display: grid;
     grid-template-columns: 1fr 1fr; 
     -webkit-animation: subpage .2s;
@@ -174,19 +179,21 @@ ul.icons{
     grid-template-columns: 50% 50%;
     font-size: 20px;
     margin-bottom: 45px;
-    li{display: flex;align-items: center;}
+    li{display: flex;
+        padding: 0;
+        align-items: center;}
     .icon_title{
         display: block; 
-        opacity: 0; 
         font-size: 16px; 
-        color: #48545b; 
-        height: 0;
+        color: $light-color; 
+        /* opacity: 0; 
+        height: 0; */
         overflow: hidden;
-        transition: all 200ms ease;
+        transition: all 200ms ease; 
     }
-    li:hover{
+    /* li:hover{
         .icon_title{opacity: 1; height: auto}
-    }
+    } */
     .icon_img{
         padding-right: 12px;
         img{width: 50px;}
@@ -278,7 +285,7 @@ nav{
         position: absolute;
         top:0; right: 0;
         padding: 15px 30px;
-        background: #22282b;
+        background: $Dark-color;
     }
 }
 
@@ -320,7 +327,7 @@ nav:target{
         max-width: 200px;
         margin: 20px;
         padding: 20px;
-        background-color: #22282b;
+        background-color: $Dark-color;
         font-family:  'Montserrat', sans-serif;
     }
     .email img, .mob img{
@@ -361,7 +368,7 @@ nav:target{
         position: relative;
         overflow: unset;
         grid-template-areas: 
-        'logo logo menu'
+        'logo title menu'
         'title title title'
         'planets planets planets';
         grid-template-rows:80px 300px auto;
@@ -411,7 +418,7 @@ nav:target{
         grid-template-rows: auto auto; 
         -webkit-animation: subpage .2s;
         overflow-y: auto;
-        background-color: #48545b;
+        background-color: $light-color;
         
         .planet_txt{
             padding: 10px 15px;
