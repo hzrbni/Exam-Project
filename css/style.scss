@@ -123,6 +123,11 @@ h1{font-family: 'Annie Use Your Telescope', cursive;}
     transition: all;
     .planet_link{transition: all;}
 }
+.internal_link{
+    text-decoration: none;
+    color: blue;
+}
+
 
 
 @keyframes subpage{
@@ -187,9 +192,9 @@ ul.icons{
         font-size: 16px; 
         color: $light-color; 
         /* opacity: 0; 
-        height: 0; */
+        height: 0; 
         overflow: hidden;
-        transition: all 200ms ease; 
+        transition: all 200ms ease; */
     }
     /* li:hover{
         .icon_title{opacity: 1; height: auto}
